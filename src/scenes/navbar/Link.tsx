@@ -6,7 +6,7 @@ type Props = {
     selectedPage: string
     setSelectedPage: (value: string) => void;
 }
-
+// page will contain the page name text, selectedpage will contain the page name(id) of the button clicked
 const Link = ({page, selectedPage, setSelectedPage}: Props) => {
     const lowerCasePage = page.toLowerCase().replace(/ /g,"");
   return (
