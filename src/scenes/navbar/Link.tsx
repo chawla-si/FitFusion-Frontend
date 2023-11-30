@@ -5,7 +5,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 type Props = {
     page: string;
     selectedPage: SelectedPage;
-    setSelectedPage: (value: string) => void;
+    setSelectedPage: (value: SelectedPage) => void;
 }
 // page will contain the page name text, selectedpage will contain the page name(id) of the button clicked
 const Link = ({page, selectedPage, setSelectedPage}: Props) => {
