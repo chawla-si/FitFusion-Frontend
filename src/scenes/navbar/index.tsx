@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import Logo from "@/assets/Logo.png";
+import Horizontal_Logo from "@/assets/Horizontal_Logo.png";
 import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
@@ -29,7 +29,11 @@ const Navbar = ({ isTopofPage, selectedPage, setSelectedPage }: Props) => {
 
           {/* LEFT SIDE  space between each item is 16*/}
           <div className={`${flexBetween} w-full gap-16`}>
-            <img alt="logo" src={Logo}></img>
+            <img
+              alt="Horizontal Logo"
+              src={Horizontal_Logo}
+              className="h-8"
+            ></img>
           </div>
 
           {/* RIGHT SIDE- all items to the right of logo*/}
