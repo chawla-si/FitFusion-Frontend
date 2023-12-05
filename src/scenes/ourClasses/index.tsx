@@ -8,6 +8,8 @@ import image6 from "@/assets/image6.png";
 import { motion } from "framer-motion";
 import HText from "@/shared/HText";
 import Class from "./Class";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const classes: Array<ClassType> = [
     {
@@ -47,6 +49,19 @@ type Props = {
 };
 
 const OurClasses = ({ setSelectedPage } : Props) => {
+   const baseUrl:string = "http://localhost:8080/api/exercises";
+   const [exercises, setExercises] = useState([]);
+ useEffect(() =>{
+    
+    axios.get(baseUrl).then((response)=>{
+        console.log(response.data);
+        setExercises(response.data);
+    });
+ },[]);
+
+ if (!exercises) {
+    console.log("okay its null")
+ }
     return <section id="ourclasses" className = "w-full bg-primary-100 py-40">
         <motion.div
             onViewportEnter={() => setSelectedPage(SelectedPage.OurClasses)}
