@@ -1,4 +1,4 @@
-import { SelectedPage, ClassType } from "@/shared/types"
+import { SelectedPage, ClassType, ExerciseType } from "@/shared/types"
 import image1 from "@/assets/image1.png";
 import image2 from "@/assets/image2.png";
 import image3 from "@/assets/image3.png";
@@ -10,6 +10,7 @@ import HText from "@/shared/HText";
 import Class from "./Class";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Exercise from "./Class";
 
 const classes: Array<ClassType> = [
     {
@@ -49,6 +50,7 @@ type Props = {
 };
 
 const OurClasses = ({ setSelectedPage } : Props) => {
+    const images = [image1, image2, image3, image4, image5];
    const baseUrl:string = "http://localhost:8080/api/exercises";
    const [exercises, setExercises] = useState([]);
  useEffect(() =>{
@@ -86,14 +88,15 @@ const OurClasses = ({ setSelectedPage } : Props) => {
             </motion.div>
             <div className = "mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
                 <ul className = "w-[2800px] whitespace-nowrap">
-                    {classes.map((item: ClassType, index) => (
-                        <Class 
-                            key = {`${item.name}-${index}`}
-                            name = {item.name}
-                            description = {item.description}
-                            image = {item.image}
-                        />
-                    ))}
+                        {exercises.map((item: ExerciseType, index) => (
+                            <Exercise 
+                                key = {`${item.name}-${index}`}
+                                name = {item.name}
+                                intensity = {item.intensity}
+                                duration = {item.duration}
+                                image = {images[index%5]}
+                            />
+                        ))}
                 </ul>
             </div>
         </motion.div>

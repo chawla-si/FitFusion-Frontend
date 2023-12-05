@@ -16,3 +16,10 @@ export enum SelectedPage {
     description?: string;
     image: string;
   }
+
+  export interface ExerciseType {
+    name: string;
+    duration: string;
+    intensity: string;
+    image: string;
+  }
